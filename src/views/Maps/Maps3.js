@@ -4,9 +4,11 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
 
+
+
 function Maps() {
   useEffect(() => {
-    const map = L.map('map').setView([47.3220, 5.0415], 12);
+    const map = L.map('map').setView([47 + 18/60 + 31.28/3600, 5 + 3/60 + 9.35/3600], 11.2);
 
     const fontAwesomeIcon = L.divIcon({
         html: '<i class="fa fa-map-marker fa-4x" style="color: #db0925"></i>',
@@ -36,6 +38,10 @@ function Maps() {
     L.marker([47.35307504238675, 5.067324174661655 ], {icon: fontAwesomeIcon}).addTo(map)
     .bindPopup('ARDENNES')
     .openPopup();
+
+    var imageUrl = 'https://maps.lib.utexas.edu/maps/historical/newark_nj_1922.jpg';
+    var imageBounds = [[47 + 24/60 + 29.99/3600, 4 + 53/60 + 16.40/3600], [47 + 12/60 + 31.71/3600, 5 + 13/60 + 0.11/3600]]; // Les coordonnées délimitant l'image
+    L.imageOverlay(imageUrl, imageBounds).addTo(map);
     
     
 
